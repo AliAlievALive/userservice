@@ -43,15 +43,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserProfile getUserProfile(Long userId) {
-        Optional<UserProfile> userById = userProfileRepository.findById(userId);
-        if (userById.isEmpty()) {
-            throw new UserNotFoundException("User with id " + userId + " not exists");
-        }
-        return userById.get();
-    }
-
-    @Override
     public void updateUserProfile(Long userId, UserProfile userProfile) {
         Optional<UserProfile> userById = userProfileRepository.findById(userId);
         if (userById.isEmpty()) {
